@@ -1,0 +1,1 @@
+# Scoutbox-privacy-policy-document
