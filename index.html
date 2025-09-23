@@ -1,20 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="ko">
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Scoutbox – Privacy Policy</title>
-    <meta name="description"
-        content="Scoutbox Privacy Policy: how we collect, use, and share your information when you use our mobile application." />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Scoutbox – 개인정보 처리방침</title>
+    <meta name="description" content="Scoutbox 개인정보 처리방침 — 앱 사용 시 수집, 이용, 공유되는 정보와 사용자의 권리" />
     <meta name="theme-color" content="#0f172a" />
-
-    <!-- Open Graph / Twitter -->
+    <!-- Open Graph baseline (we will update og:locale dynamically for readability) -->
     <meta property="og:title" content="Scoutbox – Privacy Policy" />
     <meta property="og:description" content="How Scoutbox handles your data, your controls, and contact details." />
     <meta property="og:type" content="website" />
-    <meta property="og:locale" content="en_US" />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:locale" content="ko_KR" />
 
     <style>
         :root {
@@ -22,9 +19,8 @@
             --panel: #0f172a;
             --text: #e5e7eb;
             --muted: #9ca3af;
-            --brand: #60a5fa;
-            --border: #1f2937;
             --link: #93c5fd;
+            --border: #1f2937;
             --focus: #22d3ee;
         }
 
@@ -35,7 +31,7 @@
 
         body {
             margin: 0;
-            font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+            font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
             background: linear-gradient(180deg, var(--bg), #0d1326 60%);
             color: var(--text);
             line-height: 1.6;
@@ -63,6 +59,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            gap: 1rem;
         }
 
         .brand {
@@ -81,18 +78,51 @@
             color: var(--muted);
         }
 
-        .btn-top {
-            border: 1px solid var(--border);
-            padding: .5rem .75rem;
-            border-radius: .75rem;
-            color: var(--text);
-            background: #0b1224;
-            cursor: pointer;
+        .top-controls {
+            display: flex;
+            gap: .5rem;
+            align-items: center;
         }
 
-        .btn-top:focus-visible {
+        .btn {
+            border: 1px solid #e5e7eb;
+            /* light/neutral border */
+            padding: .4rem .6rem;
+            border-radius: .6rem;
+            color: #000000;
+            /* black text */
+            background: #ffffff;
+            /* white background */
+            cursor: pointer;
+            font-size: .95rem;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+        }
+
+        .btn:focus {
             outline: 3px solid var(--focus);
             outline-offset: 2px;
+        }
+
+        .lang-toggle {
+            display: inline-flex;
+            gap: .35rem;
+            background: transparent;
+            border-radius: 999px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .lang-toggle button {
+            all: unset;
+            padding: .35rem .6rem;
+            cursor: pointer;
+            color: var(--muted);
+        }
+
+        .lang-toggle button[aria-pressed="true"] {
+            background: var(--link);
+            color: var(--panel);
+            font-weight: 600;
         }
 
         main {
@@ -105,13 +135,6 @@
             border-radius: 1rem;
             box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
             overflow: hidden;
-        }
-
-        .card header {
-            position: relative;
-            background: none;
-            border: 0;
-            backdrop-filter: none;
         }
 
         .hero {
@@ -146,10 +169,6 @@
             font-size: .95rem;
         }
 
-        nav.toc a:hover {
-            text-decoration: underline;
-        }
-
         section {
             padding: 1.25rem 1.25rem;
         }
@@ -159,7 +178,8 @@
             margin: 0 0 .25rem;
         }
 
-        p {
+        p,
+        li {
             margin: .5rem 0 0;
         }
 
@@ -167,42 +187,47 @@
             margin: .5rem 0 0 1.25rem;
         }
 
-        li {
-            margin: .35rem 0;
-        }
-
-        code {
-            background: #0b1224;
-            padding: .1rem .35rem;
-            border-radius: .4rem;
-            border: 1px solid var(--border);
-        }
-
-        a {
-            color: var(--link);
-        }
-
         footer {
             margin-top: 2rem;
             color: var(--muted);
             font-size: .95rem;
             text-align: center;
+            padding: 1rem 0;
+        }
+
+        /* language blocks visibility */
+        .lang-block {
+            display: none;
+        }
+
+        .lang-block[data-lang="ko"] {
+            display: block;
+        }
+
+        .lang-block[data-lang="en"] {
+            display: none;
+        }
+
+        /* small responsiveness */
+        @media (max-width:640px) {
+            .header-inner {
+                padding: .5rem 1rem
+            }
+
+            .container {
+                padding: 1.5rem 1rem 3rem
+            }
         }
 
         @media (prefers-color-scheme: light) {
             :root {
                 --bg: #f8fafc;
-                --panel: #ffffff;
+                --panel: #fff;
                 --text: #0f172a;
                 --muted: #475569;
-                --brand: #2563eb;
-                --border: #e5e7eb;
                 --link: #1d4ed8;
+                --border: #e5e7eb;
                 --focus: #0891b2;
-            }
-
-            .btn-top {
-                background: #fff;
             }
 
             body {
@@ -210,20 +235,17 @@
             }
         }
     </style>
-    <script>
-        function toTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
-    </script>
-    <script type="application/ld+json">
+
+    <script type="application/ld+json" id="ld-json">
   {
-    "@context": "https://schema.org",
-    "@type": "PrivacyPolicy",
-    "name": "Scoutbox Privacy Policy",
-    "publisher": {"@type": "Organization", "name": "Scoutbox"},
-    "inLanguage": "en",
-    "isPartOf": {"@type": "WebSite", "name": "Scoutbox"},
-    "datePublished": "2025-08-13",
-    "dateModified": "2025-08-13",
-    "url": "./privacy.html"
+    "@context":"https://schema.org",
+    "@type":"PrivacyPolicy",
+    "name":"Scoutbox Privacy Policy",
+    "publisher":{"@type":"Organization","name":"Scoutbox"},
+    "inLanguage":"ko",
+    "datePublished":"2025-08-13",
+    "dateModified":"2025-08-13",
+    "url":"./privacy.html"
   }
   </script>
 </head>
@@ -233,117 +255,202 @@
         <div class="header-inner">
             <div class="brand">
                 <a href="#">Scoutbox</a>
-                <small>Privacy Policy</small>
+                <small id="policy-label">개인정보 처리방침</small>
             </div>
-            <button class="btn-top" onclick="toTop()" aria-label="Back to top">↑ Top</button>
+
+            <div class="top-controls" role="navigation" aria-label="header controls">
+                <div class="lang-toggle" role="tablist" aria-label="언어 선택 / Language switch">
+                    <button id="btn-ko" role="tab" aria-pressed="true">한국어</button>
+                    <button id="btn-en" role="tab" aria-pressed="false">English</button>
+                </div>
+                <button class="btn" onclick="toTop()" aria-label="Back to top">↑ Top</button>
+            </div>
         </div>
     </header>
 
     <div class="container">
-        <main class="card" role="main">
+        <main class="card" role="main" id="main-card">
+
+            <!-- HERO (shared) -->
             <header class="hero">
-                <h1>Privacy Policy</h1>
-                <div class="meta">
-                    <div><strong>Effective Date:</strong> August 13, 2025</div>
-                    <div><strong>Last Updated:</strong> Sep 9, 2025</div>
+                <h1 id="title">개인정보 처리방침</h1>
+                <div class="meta" id="meta-dates">
+                    <div><strong>시행일:</strong> 2025년 8월 13일</div>
+                    <div><strong>최종 업데이트:</strong> 2025년 8월 13일</div>
                 </div>
             </header>
 
             <nav class="toc" aria-label="Table of contents">
                 <div class="inner">
-                    <a href="#info-we-collect">1. Information We Collect</a>
-                    <a href="#how-we-use">2. How We Use Your Information</a>
-                    <a href="#how-we-share">3. How We Share Your Information</a>
-                    <a href="#your-controls">4. Your Controls</a>
-                    <a href="#security">5. Security</a>
-                    <a href="#data-processing">6. Data Processing</a>
-                    <a href="#children-privacy">7. Children's Privacy</a>
-                    <a href="#changes">8. Changes to This Policy</a>
-                    <a href="#contact">9. Contact Us</a>
+                    <a href="#info-we-collect" id="toc-collect">1. 수집하는 개인정보</a>
+                    <a href="#how-we-use" id="toc-use">2. 수집한 개인정보의 이용 목적</a>
+                    <a href="#how-we-share" id="toc-share">3. 수집한 정보의 공유</a>
+                    <a href="#your-controls" id="toc-controls">4. 사용자의 권리</a>
+                    <a href="#security" id="toc-security">5. 보안</a>
+                    <a href="#data-processing" id="toc-processing">6. 데이터 처리</a>
+                    <a href="#children-privacy" id="toc-children">7. 아동의 개인정보 보호</a>
+                    <a href="#changes" id="toc-changes">8. 개인정보 처리방침 변경</a>
+                    <a href="#contact" id="toc-contact">9. 문의처</a>
                 </div>
             </nav>
 
-            <section id="intro">
-                <p>Scoutbox is committed to protecting your privacy. This Privacy Policy explains how we collect, use,
-                    and share your information when you use our mobile application.</p>
+            <!-- KOREAN BLOCK -->
+            <section id="ko-block" class="lang-block" data-lang="ko" aria-hidden="false">
+                <section id="intro-ko">
+                    <p>Scoutbox는 사용자의 개인정보 보호를 위해 최선을 다하고 있습니다. 본 개인정보처리방침은 사용자가 당사의 모바일 애플리케이션을 이용할 때, 당사가 정보를
+                        수집·이용·공유하는 방법을 설명합니다.</p>
+                </section>
+
+                <section id="info-we-collect" aria-labelledby="h2-collect-ko">
+                    <h2 id="h2-collect-ko">1. 수집하는 개인정보</h2>
+                    <ul>
+                        <li><strong>계정정보:</strong> 이름, 사용자명, 이메일, 비밀번호, 프로필 사진</li>
+                        <li><strong>사용자 생성 콘텐츠:</strong> 스포츠 하이라이트, 사진, 동영상, 관람자 동영상</li>
+                        <li><strong>기기 및 사용 데이터:</strong> 기기 유형, 앱 버전, 운영체제, 크래시 로그</li>
+                    </ul>
+                </section>
+
+                <section id="how-we-use" aria-labelledby="h2-use-ko">
+                    <h2 id="h2-use-ko">2. 수집한 개인정보의 이용 목적</h2>
+                    <ul>
+                        <li>사용자가 스포츠 하이라이트 클립을 생성, 공유 및 조회할 수 있도록 합니다.</li>
+                        <li>앱 성능, 기능 및 보안을 개선합니다.</li>
+                        <li>사기 또는 부정 사용을 감지, 방지 및 대응합니다.</li>
+                    </ul>
+                </section>
+
+                <section id="how-we-share" aria-labelledby="h2-share-ko">
+                    <h2 id="h2-share-ko">3. 수집한 정보의 공유</h2>
+                    <ul>
+                        <li><strong>서비스 제공업체와의 공유:</strong> 동영상 호스팅, 분석, 푸시 알림, 모더레이션 도구 제공을 위해 공유합니다.</li>
+                        <li><strong>법적 사유:</strong> 법률, 법원 명령 또는 서비스 이용약관 준수를 위해 필요한 경우 공유합니다.</li>
+                    </ul>
+                </section>
+
+                <section id="your-controls" aria-labelledby="h2-controls-ko">
+                    <h2 id="h2-controls-ko">4. 사용자의 권리</h2>
+                    <ul>
+                        <li>사용자는 언제든지 자신의 콘텐츠를 삭제하거나 수정할 수 있습니다.</li>
+                        <li>계정 및 개인정보 삭제를 원할 경우, <a
+                                href="mailto:spoitdeveloper@gmail.com">spoitdeveloper@gmail.com</a>으로 문의하거나 해당 양식을 작성하여
+                            요청할 수 있습니다.</li>
+                    </ul>
+                </section>
+
+                <section id="security" aria-labelledby="h2-security-ko">
+                    <h2 id="h2-security-ko">5. 보안</h2>
+                    <p>당사는 사용자의 데이터를 보호하기 위해 합리적인 조치를 취하고 있습니다. 다만, 인터넷을 통한 전송 과정에서의 완전한 보안은 보장할 수 없습니다.</p>
+                </section>
+
+                <section id="data-processing" aria-labelledby="h2-processing-ko">
+                    <h2 id="h2-processing-ko">6. 데이터 처리</h2>
+                    <p>당사는 아마추어 선수 홍보 및 Scoutbox 향후 AI 서비스 개선을 목적으로 데이터를 처리합니다.</p>
+                </section>
+
+                <section id="children-privacy" aria-labelledby="h2-children-ko">
+                    <h2 id="h2-children-ko">7. 아동의 개인정보 보호</h2>
+                    <p>Scoutbox는 일반 이용자를 대상으로 하며, 만 3세 이상의 개인이 이용할 수 있습니다. 다만, 대한민국 법률에 따라 만 14세 미만의 사용자는 계정을 생성하거나
+                        개인정보, 사진, 동영상을 제출하기 전에 부모 또는 법적 보호자의 동의가 필요합니다. 당사는 이러한 동의 없이 만 14세 미만 아동으로부터 개인정보를 고의로 수집하지
+                        않습니다. 부모 또는 보호자는 언제든지 <a href="mailto:spoitdeveloper@gmail.com">spoitdeveloper@gmail.com</a>으로
+                        문의하거나 해당 양식을 작성하여 자녀의 계정 또는 데이터를 삭제 요청할 수 있습니다.</p>
+                </section>
+
+                <section id="changes" aria-labelledby="h2-changes-ko">
+                    <h2 id="h2-changes-ko">8. 개인정보 처리방침 변경</h2>
+                    <p>당사는 본 개인정보 처리방침을 수시로 변경할 수 있습니다. 상단의 ‘최종 업데이트’ 날짜는 최신 버전을 반영합니다.</p>
+                </section>
+
+                <section id="contact" aria-labelledby="h2-contact-ko">
+                    <h2 id="h2-contact-ko">9. 문의처</h2>
+                    <p>본 개인정보 처리방침에 대한 문의나 요청이 있는 경우, <a
+                            href="mailto:spoitdeveloper@gmail.com">spoitdeveloper@gmail.com</a>으로 연락해 주시기 바랍니다.</p>
+                </section>
             </section>
 
-            <section id="info-we-collect" aria-labelledby="h2-collect">
-                <h2 id="h2-collect">1. Information We Collect</h2>
-                <ul>
-                    <li><strong>Account Information:</strong> Name, username, email, password, and profile picture.</li>
-                    <li><strong>User-Generated Content:</strong> Sports highlights, photos, videos, and spectator
-                        videos.</li>
-                    <li><strong>Device &amp; Usage Data:</strong> Device type, app version, operating system, and crash
-                        logs.</li>
-                </ul>
-            </section>
+            <!-- ENGLISH BLOCK -->
+            <section id="en-block" class="lang-block" data-lang="en" aria-hidden="true">
+                <section id="intro-en">
+                    <p>Scoutbox is committed to protecting your privacy. This Privacy Policy explains how we collect,
+                        use, and share your information when you use our mobile application.</p>
+                </section>
 
-            <section id="how-we-use" aria-labelledby="h2-use">
-                <h2 id="h2-use">2. How We Use Your Information</h2>
-                <ul>
-                    <li>Let you create, share, and view sports highlight clips.</li>
-                    <li>Improve app performance, features, and security.</li>
-                    <li>Detect, prevent, and address fraud or abuse.</li>
-                </ul>
-            </section>
+                <section id="info-we-collect-en" aria-labelledby="h2-collect-en">
+                    <h2 id="h2-collect-en">1. Information We Collect</h2>
+                    <ul>
+                        <li><strong>Account Information:</strong> Name, username, email, password, and profile picture.
+                        </li>
+                        <li><strong>User-Generated Content:</strong> Sports highlights, photos, videos, and spectator
+                            videos.</li>
+                        <li><strong>Device &amp; Usage Data:</strong> Device type, app version, operating system, and
+                            crash logs.</li>
+                    </ul>
+                </section>
 
-            <section id="how-we-share" aria-labelledby="h2-share">
-                <h2 id="h2-share">3. How We Share Your Information</h2>
-                <ul>
-                    <li><strong>With Service Providers:</strong> For video hosting, analytics, push notifications, and
-                        moderation tools.</li>
-                    <li><strong>For Legal Reasons:</strong> If required by law, court order, or to enforce our Terms of
-                        Service.</li>
-                </ul>
-            </section>
+                <section id="how-we-use-en" aria-labelledby="h2-use-en">
+                    <h2 id="h2-use-en">2. How We Use Your Information</h2>
+                    <ul>
+                        <li>Let you create, share, and view sports highlight clips.</li>
+                        <li>Improve app performance, features, and security.</li>
+                        <li>Detect, prevent, and address fraud or abuse.</li>
+                    </ul>
+                </section>
 
-            <section id="your-controls" aria-labelledby="h2-controls">
-                <h2 id="h2-controls">4. Your Controls</h2>
-                <ul>
-                    <li>Delete or edit your content at any time.</li>
-                    <li>Request deletion of your account and personal data by contacting us at <a
-                            href="mailto:spoitdeveloper@gmail.com">spoitdeveloper@gmail.com</a> or filling out <a
+                <section id="how-we-share-en" aria-labelledby="h2-share-en">
+                    <h2 id="h2-share-en">3. How We Share Your Information</h2>
+                    <ul>
+                        <li><strong>With Service Providers:</strong> For video hosting, analytics, push notifications,
+                            and moderation tools.</li>
+                        <li><strong>For Legal Reasons:</strong> If required by law, court order, or to enforce our Terms
+                            of Service.</li>
+                    </ul>
+                </section>
+
+                <section id="your-controls-en" aria-labelledby="h2-controls-en">
+                    <h2 id="h2-controls-en">4. Your Controls</h2>
+                    <ul>
+                        <li>Delete or edit your content at any time.</li>
+                        <li>Request deletion of your account and personal data by contacting us at <a
+                                href="mailto:spoitdeveloper@gmail.com">spoitdeveloper@gmail.com</a> or filling out <a
+                                href="https://forms.gle/uyQYTdNzg2nXgMXi9" target="_blank"
+                                rel="noopener noreferrer">this form</a>.</li>
+                    </ul>
+                </section>
+
+                <section id="security-en" aria-labelledby="h2-security-en">
+                    <h2 id="h2-security-en">5. Security</h2>
+                    <p>We take reasonable measures to protect your data but cannot guarantee complete security of
+                        transmissions over the Internet.</p>
+                </section>
+
+                <section id="data-processing-en" aria-labelledby="h2-processing-en">
+                    <h2 id="h2-processing-en">6. Data Processing</h2>
+                    <p>We process data for the purposes of promoting amateur players and improving Scoutbox's future AI
+                        services.</p>
+                </section>
+
+                <section id="children-privacy-en" aria-labelledby="h2-children-en">
+                    <h2 id="h2-children-en">7. Children's Privacy</h2>
+                    <p>Scoutbox is intended for general audiences and can be used by individuals aged 3 and older.
+                        However, under Korean law, users under the age of 14 must have parental or legal guardian
+                        consent before creating an account or submitting personal information, photos, or videos. We do
+                        not knowingly collect personal information from children under 14 without such consent. Parents
+                        or guardians can request deletion of their child’s account or data at any time via <a
+                            href="mailto:spoitdeveloper@gmail.com">spoitdeveloper@gmail.com</a> or by filling out <a
                             href="https://forms.gle/uyQYTdNzg2nXgMXi9" target="_blank" rel="noopener noreferrer">this
-                            form</a>.</li>
-                </ul>
-            </section>
+                            form</a>.</p>
+                </section>
 
-            <section id="security" aria-labelledby="h2-security">
-                <h2 id="h2-security">5. Security</h2>
-                <p>We take reasonable measures to protect your data but cannot guarantee complete security of
-                    transmissions over the Internet.</p>
-            </section>
+                <section id="changes-en" aria-labelledby="h2-changes-en">
+                    <h2 id="h2-changes-en">8. Changes to This Policy</h2>
+                    <p>We may update this policy periodically. The <em>Last Updated</em> date above will reflect the
+                        latest version.</p>
+                </section>
 
-            <section id="data-processing" aria-labelledby="h2-processing">
-                <h2 id="h2-processing">6. Data Processing</h2>
-                <p>We process data for the purposes of promoting amateur players and improving Scoutbox's future AI
-                    services.</p>
-            </section>
-
-            <section id="children-privacy" aria-labelledby="h2-children">
-                <h2 id="h2-children">7. Children's Privacy</h2>
-                <p>Scoutbox is intended for general audiences and can be used by individuals aged 3 and older. However,
-                    under Korean law, users under the age of 14 must have parental or legal guardian consent before
-                    creating an account or submitting personal information, photos, or videos. We do not knowingly
-                    collect personal information from children under 14 without such consent. Parents or guardians can
-                    request deletion of their child’s account or data at any time via <a
-                        href="mailto:spoitdeveloper@gmail.com">spoitdeveloper@gmail.com</a> or by filling out <a
-                        href="https://forms.gle/uyQYTdNzg2nXgMXi9" target="_blank" rel="noopener noreferrer">this
-                        form</a>.</p>
-            </section>
-
-
-            <section id="changes" aria-labelledby="h2-changes">
-                <h2 id="h2-changes">8. Changes to This Policy</h2>
-                <p>We may update this policy periodically. The <em>Last Updated</em> date above will reflect the latest
-                    version.</p>
-            </section>
-
-            <section id="contact" aria-labelledby="h2-contact">
-                <h2 id="h2-contact">9. Contact Us</h2>
-                <p>If you have questions or requests about this Privacy Policy, please contact <a
-                        href="mailto:spoitdeveloper@gmail.com">spoitdeveloper@gmail.com</a>.</p>
+                <section id="contact-en" aria-labelledby="h2-contact-en">
+                    <h2 id="h2-contact-en">9. Contact Us</h2>
+                    <p>If you have questions or requests about this Privacy Policy, please contact <a
+                            href="mailto:spoitdeveloper@gmail.com">spoitdeveloper@gmail.com</a>.</p>
+                </section>
             </section>
 
             <footer>
@@ -353,7 +460,83 @@
     </div>
 
     <script>
+        // Utilities
+        function toTop() { window.scrollTo({ top: 0, behavior: 'smooth' }) }
         document.getElementById('year').textContent = String(new Date().getFullYear());
+
+        // language handling
+        (function () {
+            const defaultLang = 'ko'; // default to Korean
+            const storageKey = 'scoutbox_lang';
+            const btnKo = document.getElementById('btn-ko');
+            const btnEn = document.getElementById('btn-en');
+            const koBlock = document.getElementById('ko-block');
+            const enBlock = document.getElementById('en-block');
+            const title = document.getElementById('title');
+            const policyLabel = document.getElementById('policy-label');
+            const metaDates = document.getElementById('meta-dates');
+            const ldScript = document.getElementById('ld-json');
+
+            // read saved preference or fallback
+            const saved = localStorage.getItem(storageKey);
+            const browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+            const initial = saved || (browserLang.startsWith('en') ? 'en' : defaultLang);
+
+            function setLang(lang, persist = true) {
+                // show/hide blocks
+                if (lang === 'en') {
+                    koBlock.style.display = 'none';
+                    enBlock.style.display = 'block';
+                    koBlock.setAttribute('aria-hidden', 'true');
+                    enBlock.setAttribute('aria-hidden', 'false');
+                    document.documentElement.lang = 'en';
+                    btnEn.setAttribute('aria-pressed', 'true');
+                    btnKo.setAttribute('aria-pressed', 'false');
+                    // update header copy
+                    title.textContent = 'Privacy Policy';
+                    policyLabel.textContent = 'Privacy Policy';
+                    // update ld-json language & og:locale
+                    updateLD('en');
+                    updateOgLocale('en_US');
+                } else {
+                    koBlock.style.display = 'block';
+                    enBlock.style.display = 'none';
+                    koBlock.setAttribute('aria-hidden', 'false');
+                    enBlock.setAttribute('aria-hidden', 'true');
+                    document.documentElement.lang = 'ko';
+                    btnKo.setAttribute('aria-pressed', 'true');
+                    btnEn.setAttribute('aria-pressed', 'false');
+                    title.textContent = '개인정보 처리방침';
+                    policyLabel.textContent = '개인정보 처리방침';
+                    updateLD('ko');
+                    updateOgLocale('ko_KR');
+                }
+
+                // update visible TOC links (anchor text remains the same but IDs stay stable)
+                // persist
+                if (persist) localStorage.setItem(storageKey, lang);
+            }
+
+            function updateLD(lang) {
+                try {
+                    const ld = JSON.parse(ldScript.textContent);
+                    ld.inLanguage = (lang === 'en') ? 'en' : 'ko';
+                    ldScript.textContent = JSON.stringify(ld, null, 2);
+                } catch (e) { /* ignore */ }
+            }
+
+            function updateOgLocale(locale) {
+                const metaOg = document.querySelector('meta[property="og:locale"]');
+                if (metaOg) metaOg.setAttribute('content', locale);
+            }
+
+            // attach handlers
+            btnKo.addEventListener('click', () => setLang('ko'));
+            btnEn.addEventListener('click', () => setLang('en'));
+
+            // initialize
+            setLang(initial, true);
+        })();
     </script>
 </body>
 
