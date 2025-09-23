@@ -208,8 +208,83 @@
             display: none;
         }
 
-        /* small responsiveness */
-        @media (max-width:640px) {
+        /* --- Global adjustments (keeps desktop spacing) --- */
+        section {
+            padding: 1.25rem 1.25rem;
+            /* keep for larger screens */
+        }
+
+        /* Reduce paragraph/list default vertical space to be less heavy */
+        p,
+        li {
+            margin: 0.25rem 0 0;
+            /* tighter than 0.5rem */
+        }
+
+        /* Tighter list indentation and top gap */
+        ul {
+            margin: 0.25rem 0 0 1rem;
+            /* slightly smaller left indent */
+            padding-left: 0;
+            /* rely on margin for indent */
+        }
+
+        /* Reduce space between heading and following paragraph */
+        h2+p,
+        h2+ul,
+        h2+div {
+            margin-top: 0.25rem;
+        }
+
+        /* Optional: Slightly tighter h2 bottom margin */
+        h2 {
+            margin: 0 0 0.25rem;
+        }
+
+        /* --- Mobile (phones) — make everything more compact --- */
+        @media (max-width: 640px) {
+            .container {
+                padding: 1rem 0.9rem 2.25rem;
+                /* less side padding on phones */
+            }
+
+            section {
+                padding: 0.9rem 0.9rem;
+                /* decrease section padding on phones */
+            }
+
+            .hero {
+                padding: 1.25rem 1rem 0.75rem;
+                /* reduce hero top/bottom space */
+            }
+
+            p,
+            li {
+                margin: 0.18rem 0 0;
+                /* very compact lines on phones */
+                line-height: 1.45;
+                /* keep readability */
+                font-size: 0.98rem;
+                /* slightly smaller on phones if you want */
+            }
+
+            ul {
+                margin: 0.18rem 0 0 0.9rem;
+            }
+
+            nav.toc .inner {
+                padding: 0.5rem 0.75rem;
+                gap: 0.6rem;
+            }
+
+            h1 {
+                margin-bottom: 0.25rem;
+            }
+
+            h2 {
+                margin-bottom: 0.125rem;
+            }
+
             .header-inner {
                 padding: .5rem 1rem
             }
@@ -218,6 +293,7 @@
                 padding: 1.5rem 1rem 3rem
             }
         }
+
 
         @media (prefers-color-scheme: light) {
             :root {
@@ -304,9 +380,9 @@
                 <section id="info-we-collect" aria-labelledby="h2-collect-ko">
                     <h2 id="h2-collect-ko">1. 수집하는 개인정보</h2>
                     <ul>
-                        <li><strong>계정정보:</strong> 이름, 사용자명, 이메일, 비밀번호, 프로필 사진</li>
-                        <li><strong>사용자 생성 콘텐츠:</strong> 스포츠 하이라이트, 사진, 동영상, 관람자 동영상</li>
-                        <li><strong>기기 및 사용 데이터:</strong> 기기 유형, 앱 버전, 운영체제, 크래시 로그</li>
+                        <li>계정정보: 이름, 사용자명, 이메일, 비밀번호, 프로필 사진</li>
+                        <li>사용자 생성 콘텐츠: 스포츠 하이라이트, 사진, 동영상, 관람자 동영상</li>
+                        <li>기기 및 사용 데이터: 기기 유형, 앱 버전, 운영체제, 크래시 로그</li>
                     </ul>
                 </section>
 
@@ -322,8 +398,8 @@
                 <section id="how-we-share" aria-labelledby="h2-share-ko">
                     <h2 id="h2-share-ko">3. 수집한 정보의 공유</h2>
                     <ul>
-                        <li><strong>서비스 제공업체와의 공유:</strong> 동영상 호스팅, 분석, 푸시 알림, 모더레이션 도구 제공을 위해 공유합니다.</li>
-                        <li><strong>법적 사유:</strong> 법률, 법원 명령 또는 서비스 이용약관 준수를 위해 필요한 경우 공유합니다.</li>
+                        <li>서비스 제공업체와의 공유: 동영상 호스팅, 분석, 푸시 알림, 모더레이션 도구 제공을 위해 공유합니다.</li>
+                        <li>법적 사유: 법률, 법원 명령 또는 서비스 이용약관 준수를 위해 필요한 경우 공유합니다.</li>
                     </ul>
                 </section>
 
@@ -377,11 +453,11 @@
                 <section id="info-we-collect-en" aria-labelledby="h2-collect-en">
                     <h2 id="h2-collect-en">1. Information We Collect</h2>
                     <ul>
-                        <li><strong>Account Information:</strong> Name, username, email, password, and profile picture.
+                        <li>Account Information: Name, username, email, password, and profile picture.
                         </li>
-                        <li><strong>User-Generated Content:</strong> Sports highlights, photos, videos, and spectator
+                        <li>User-Generated Content: Sports highlights, photos, videos, and spectator
                             videos.</li>
-                        <li><strong>Device &amp; Usage Data:</strong> Device type, app version, operating system, and
+                        <li>Device &amp; Usage Data:Device type, app version, operating system, and
                             crash logs.</li>
                     </ul>
                 </section>
@@ -398,9 +474,9 @@
                 <section id="how-we-share-en" aria-labelledby="h2-share-en">
                     <h2 id="h2-share-en">3. How We Share Your Information</h2>
                     <ul>
-                        <li><strong>With Service Providers:</strong> For video hosting, analytics, push notifications,
+                        <li>With Service Providers: For video hosting, analytics, push notifications,
                             and moderation tools.</li>
-                        <li><strong>For Legal Reasons:</strong> If required by law, court order, or to enforce our Terms
+                        <li>For Legal Reasons: If required by law, court order, or to enforce our Terms
                             of Service.</li>
                     </ul>
                 </section>
